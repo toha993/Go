@@ -2,18 +2,25 @@ package main
 
 import (
 	config "Package/Generics/pkg/config"
+	//"Package/Generics/pkg/model"
 	query "Package/Generics/pkg/query"
-	//model "Package/Generics/pkg/model"
+
+	model "Package/Generics/pkg/model"
 	"fmt"
 )
 
 func main() {
 	db,_ := config.MongoConnection("Books") // Create instance of Database
-	//collection := query.NewMongoCollection(db,"book") // Create instance of Collection
-	collection2 := query.NewMongoCollection(db,"BookTwo") // Create Another instance of Collection
+	collection := query.NewMongoCollection(db,"book") // Create instance of Collection
+	//collection2 := query.NewMongoCollection(db,"BookTwo") // Create Another instance of Collection
 
-	//book := model.BookTwo{"5", "1111111", "Cumilla"}
+	//book := model.Book{book.Id:"101", book.Title:"Don'tKnow",book.Authorname:"NoName"}
+	book := model.Book{
+		Title: "Don'tKnow",
+		Id: "102",
+		Authorname: "NILLLL",
+	}
 
-	//fmt.Println(collection.Insert(book))
-	fmt.Println(collection2.DeleteById("5"))
+	id := "61486c2daa42c647bd0a695d"
+	fmt.Println(collection.Save(book,id))
 }

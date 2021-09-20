@@ -2,8 +2,8 @@ package model
 
 type Book struct{
 	Id string
-	Title string
 	Authorname string
+	Title string
 }
 
 type BookTwo struct{
